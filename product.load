@@ -1,0 +1,13 @@
+LOAD CSV
+  FROM 'data/product.csv'
+  HAVING FIELDS
+  (
+    id, name, slogan, description, category, default_price
+  )
+  INTO postgresql:///sdcproducts?products
+    TARGET COLUMNS
+    (
+      id, name, slogan, description, category, default_price
+    )
+  WITH skip header = 1,
+    fields terminated by ',';
