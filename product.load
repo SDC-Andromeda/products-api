@@ -1,3 +1,4 @@
+
 LOAD CSV
   FROM 'data/product.csv'
   HAVING FIELDS

@@ -1,4 +1,6 @@
-USE sdcproducts;
+-- to run file use mysql -u root <file name>
+
+-- USE sdcproducts;
 
 
 -- DROP TABLE IF EXISTS products;
@@ -7,8 +9,8 @@ USE sdcproducts;
 -- -- DROP TABLE features;
 -- -- DROP TABLE skus;
 
--- -- -- DROP SCHEMA sdcproducts;
--- -- -- CREATE SCHEMA sdcproducts;
+-- --  DROP SCHEMA sdcproducts;
+-- --  CREATE SCHEMA sdcproducts;
 
 -- CREATE TABLE products (
 --   id INT UNIQUE PRIMARY KEY,
@@ -32,7 +34,7 @@ USE sdcproducts;
 --     category = NULLIF(@category, ''),
 --     default_price = NULLIF(@price, '');
 
--- -- update the products table
+-- update the products table
 
 -- UPDATE products
 --   SET default_price = category, category = description, description = slogan, slogan = '' WHERE default_price IS NULL;
@@ -135,28 +137,25 @@ USE sdcproducts;
 
 -- photos
 
-CREATE TABLE photos (
-  id int PRIMARY KEY,
-  styleId int,
-  url varchar(200),
-  thumbnail_url varchar(200)
-);
+-- CREATE TABLE photos (
+--   id int PRIMARY KEY,
+--   styleId int,
+--   url varchar(200),
+--   thumbnail_url varchar(200)
+-- );
 
-ALTER TABLE photos ADD FOREIGN KEY (styleId) REFERENCES styles (id);
+-- ALTER TABLE photos ADD FOREIGN KEY (styleId) REFERENCES styles (id);
 
-LOAD DATA LOCAL INFILE './data/photos.csv' INTO TABLE photos
-FIELDS TERMINATED BY ','
-OPTIONALLY ENCLOSED BY '"'
-LINES TERMINATED BY "\n"
-IGNORE 1 LINES
-(@id, @styleId, @url, @thumbnail_url)
-SET id = NULLIF(@id, ''),
-    styleId = NULLIF(@styleId, ''),
-    url = NULLIF(@url, ''),
-    thumbnail_url = NULLIF(@thumbnail_url, '');
+-- LOAD DATA LOCAL INFILE './data/photos.csv' INTO TABLE photos
+-- FIELDS TERMINATED BY ','
+-- OPTIONALLY ENCLOSED BY '"'
+-- LINES TERMINATED BY "\n"
+-- IGNORE 1 LINES
+-- (@id, @styleId, @url, @thumbnail_url)
+-- SET id = NULLIF(@id, ''),
+--     styleId = NULLIF(@styleId, ''),
+--     url = NULLIF(@url, ''),
+--     thumbnail_url = NULLIF(@thumbnail_url, '');
 
--- COPY products
--- FROM '/Users/jakenalls/Desktop/rfe2/products-api/data/product.csv'
--- DELIMITER ','
--- CSV HEADER;
+
 
