@@ -32,13 +32,13 @@ SET id = NULLIF(@id, ''),
     category = NULLIF(@category, ''),
     default_price = NULLIF(@price, '');
 
-update the products table
+-- update the products table
 
 UPDATE products
   SET default_price = category, category = description, description = slogan, slogan = '' WHERE default_price IS NULL;
 
 
-styles
+-- styles
 
 DROP TABLE IF EXISTS styles;
 
@@ -67,7 +67,7 @@ SET id = NULLIF(@id, ''),
     default_style = NULLIF(@default_style, '');
 
 
-related
+-- related
 DROP TABLE IF EXISTS related;
 
 CREATE TABLE related (
@@ -88,8 +88,7 @@ SET id = NULLIF(@id, ''),
     current_product_id = NULLIF(@productId, ''),
     related_product_id = NULLIF(@related, '');
 
-features
-DROP TABLE IF EXISTS features;
+-- features
 
 CREATE TABLE features (
   id int PRIMARY KEY,
@@ -111,7 +110,7 @@ SET id = NULLIF(@id, ''),
     feature = NULLIF(@feature, ''),
     value = NULLIF(@value, '');
 
-skus
+-- skus
 
 CREATE TABLE skus (
   id int PRIMARY KEY,
@@ -133,7 +132,7 @@ SET id = NULLIF(@id, ''),
     size = NULLIF(@size, ''),
     quantity = NULLIF(@quantity, '');
 
-photos
+-- photos
 
 CREATE TABLE photos (
   id int PRIMARY KEY,
