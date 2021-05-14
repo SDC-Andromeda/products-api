@@ -2,13 +2,11 @@
 
 USE sdcproducts;
 
-
--- DROP TABLE IF EXISTS products;
--- DROP TABLE styles;
--- DROP TABLE related;
--- DROP TABLE features;
--- DROP TABLE skus;
-
+DROP TABLE related;
+DROP TABLE features;
+DROP TABLE skus;
+DROP TABLE styles;
+DROP TABLE IF EXISTS products;
 --  DROP SCHEMA sdcproducts;
 --  CREATE SCHEMA sdcproducts;
 
